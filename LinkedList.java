@@ -82,6 +82,17 @@ class List {
         current.next = null;
     }
 
+	public Node search(int key) {
+        Node current = head;
+        while (current != null) {
+            if (current.data == key) {
+                return current;
+            }
+            current = current.next;
+        }
+        return null;
+    }
+
 	public void display() {
         Node current = head;
         while (current != null) {
@@ -106,5 +117,9 @@ public class LinkedList {
         linkedList.display();
         linkedList.popLast();
         linkedList.display();
+
+		Node searchedNode = linkedList.search(56);
+		searchedNode.data = 51;
+		linkedList.display();
 	}
 }
