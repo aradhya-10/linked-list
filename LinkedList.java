@@ -29,6 +29,20 @@ class List {
         current.next = newNode;
     }
 
+	// public void insertBefore(Node nextNode, int data) {
+	public void insertBefore(int data) {
+        // if (prevNode == null) {
+        //     System.out.println("Last node cannot be null");
+        //     return;
+        // }
+		// while(headd.next != nextNode)
+		// 	headd = headd.next;
+		// Node headd = head;
+        Node newNode = new Node(data);
+        newNode.next = head;
+        head = newNode;
+    }
+
 	 public void display() {
         Node current = head;
         while (current != null) {
@@ -43,8 +57,8 @@ public class LinkedList {
     public static void main(String[] args) {
 
 		List linkedList = new List(70);
-        linkedList.append(30);
-        linkedList.append(56);
+        linkedList.insertBefore(30);
+        linkedList.insertBefore(56);
 
         linkedList.display();
 	}
