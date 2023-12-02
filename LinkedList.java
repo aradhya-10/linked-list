@@ -8,23 +8,44 @@ class Node {
     }
 }
 
-public class LinkedList {
-	
-	public static void display(Node head) {
-		Node current = head;
+class List {
+    Node head;
+
+	List(int data) {
+		Node list = new Node(data);
+		head = list;
+	}
+
+    public void append(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+        Node current = head;
+        while (current.next != null) {
+            current = current.next;
+        }
+        current.next = newNode;
+    }
+
+	 public void display() {
+        Node current = head;
         while (current != null) {
-			System.out.print(current.data + "->");
+            System.out.print(current.data + "->");
             current = current.next;
         }
         System.out.println("null");
     }
+}
 
-	public static void main(String[] args) {
-		// Create a simple linked list
-		Node head = new Node(56);
-		head.next = new Node(30);
-		head.next.next = new Node(70);
+public class LinkedList {
+    public static void main(String[] args) {
 
-		display(head);
+		List linkedList = new List(70);
+        linkedList.append(30);
+        linkedList.append(56);
+
+        linkedList.display();
 	}
 }
