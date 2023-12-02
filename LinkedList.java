@@ -101,6 +101,21 @@ class List {
 		head.next = head.next.next;
 	}
 
+	public void add(int data) {
+        Node newNode = new Node(data);
+        if (head == null || head.data >= data) {
+            newNode.next = head;
+            head = newNode;
+            return;
+        }
+        Node current = head;
+        while (current.next != null && current.next.data < data) {
+            current = current.next;
+        }
+        newNode.next = current.next;
+        current.next = newNode;
+    }
+
 	public void display() {
 		int i = 0;
         Node current = head;
@@ -134,6 +149,18 @@ public class LinkedList {
 		linkedList.display();
 		
 		linkedList.delete(51);
+		linkedList.display();
+
+		linkedList.delete(50);
+		linkedList.display();
+		
+		linkedList.add(40);
+		linkedList.display();
+		linkedList.add(70);
+		linkedList.display();
+		linkedList.add(30);
+		linkedList.display();
+		linkedList.add(10);
 		linkedList.display();
 	}
 }
