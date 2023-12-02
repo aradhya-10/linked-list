@@ -70,7 +70,19 @@ class List {
         }
     }
 
-	 public void display() {
+	public void popLast() {
+        if (head == null || head.next == null) {
+            head = null;
+            return;
+        }
+        Node current = head;
+        while (current.next.next != null) {
+            current = current.next;
+        }
+        current.next = null;
+    }
+
+	public void display() {
         Node current = head;
         while (current != null) {
             System.out.print(current.data + "->");
@@ -91,6 +103,8 @@ public class LinkedList {
 
         linkedList.display();
         linkedList.pop();
+        linkedList.display();
+        linkedList.popLast();
         linkedList.display();
 	}
 }
