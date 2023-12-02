@@ -64,6 +64,12 @@ class List {
     	headd.next = newNode;
     }
 
+	public void pop() {
+        if (head != null) {
+            head = head.next;
+        }
+    }
+
 	 public void display() {
         Node current = head;
         while (current != null) {
@@ -83,6 +89,8 @@ public class LinkedList {
         linkedList.insertBefore(60);
         linkedList.insertAfter(50, 56);
 
+        linkedList.display();
+        linkedList.pop();
         linkedList.display();
 	}
 }
