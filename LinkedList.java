@@ -94,13 +94,23 @@ class List {
         return null;
     }
 
+	public void delete(int data){
+		Node headd = head;
+		while(headd.next.next != null && data!=headd.next.data)
+			headd = headd.next;
+		head.next = head.next.next;
+	}
+
 	public void display() {
+		int i = 0;
         Node current = head;
         while (current != null) {
             System.out.print(current.data + "->");
             current = current.next;
+			i++;
         }
         System.out.println("null");
+        System.out.println("Size of list: "+i);
     }
 }
 
@@ -121,6 +131,9 @@ public class LinkedList {
 
 		Node searchedNode = linkedList.search(56);
 		searchedNode.data = 51;
+		linkedList.display();
+		
+		linkedList.delete(51);
 		linkedList.display();
 	}
 }
